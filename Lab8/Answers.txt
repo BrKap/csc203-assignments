@@ -1,0 +1,9 @@
+6. We get the error because the method does not "Throw" an exception.
+7. I am assuming extending RuntimeException allows it to compile and allow it to throw and it won't complain until the Runtime where it throws properly.
+I think it is basically shifting the priority and allowing the runtime to deal with the Exception instead of the compiler. We also could have
+added the Throw Exception in the method like I explained for #6
+9.Circle only gets printed if it has a valid radius, which is any positive radius. In finally gets called right after either the Circle or the exception message.
+Lastly Done gets printed after everything as it is outside the try/catch and none of the exceptions cause the program running to break.
+14.  If I comment out the negative radius exception catch, it will not print message that I defined in the class NegativeRadiusException,
+instead it will just create the crash stack report after the In Finally message. It will not continue onto "Done" since the program has stopped.
+Furthermore, if I were to put the bad circle constructor before try, it will just send the crash report and will not continue to the try block.
