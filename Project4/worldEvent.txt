@@ -1,0 +1,37 @@
+Entities added:
+- Zombie: Targets nearest DudeFull/DudeNotFull and transforms them into a Skull and also transforms a nearby Fairy into FairyGreen
+    Extends CanMove
+
+- Skull: Is the target of FairyGreen. Holds previous Dude's Data.
+    Extends Entity
+
+- FairyGreen: Created when a Dude transforms into a Skull. Targets the Skull and transforms the Skull into it's previous form (From the data the Skull holds)
+    Extends CanMove (I thought about making it Extend Fairy, but I figured they are not similar to Dude with DudeFull/DudeNotFull extending Dude)
+    Holds Previous Fairy Data
+
+- FairyRed: After A Fairy has turned into FairyGreen 5 times and has saved a Dude, Fairy will Transform into FairyRed and target the nearest Zombie to remove.
+    Extends CanMove (Same as for FairyGreen)
+    Holds Previous Fairy Data
+
+Images added:
+-zombie0 to zombie4
+-skull0
+-fairygreen0 to fairygreen8
+-fairyred0 to fairyred8
+-zombieground
+
+New Events:
+-Mouse Click: Spawns a zombie at position clicked and replaces nearby background tiles with zombieground
+
+Changes to Fairy:
+-Counter for DudeSaved
+-Implements Transform and added Transform Method to turn into FairyRed
+-Execute now checks DudeSaved counter for Transform
+
+Changes to WorldModel
+- Implment all methods for Parsing Zombie (In case we want them spawned in during setup)
+
+Changes to VirtualWorld
+- Change MousePressed() to spawn Zombie and schedule its events instead of getting location data
+
+
